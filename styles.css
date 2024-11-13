@@ -1,0 +1,180 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #000; /* Default background color */
+}
+
+/* Container that holds the entire content */
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Background Image with Blur Effect */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/background.jpg'); /* Path to background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+    z-index: -1; /* Place background behind all content */
+}
+
+/* Image Slider */
+.slider-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    scroll-snap-type: x mandatory; /* Force horizontal scrolling with snap points */
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.slider-img {
+    width: 300px; /* Fixed width for images */
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start; /* Ensure images snap into place */
+}
+
+/* Hover effect for slider images */
+.slider-img:hover {
+    transform: scale(1.1);
+}
+
+/* Neon Text Style for Title */
+.neon-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #00f5ff; /* Blue neon color */
+    text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #00f5ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 1;
+    /* No border as requested */
+}
+
+/* Surprise Button Styling - Positioned at Bottom Center */
+.surprise-btn {
+    position: absolute;
+    bottom: 20px; /* Position at bottom of page */
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    text-align: center;
+    padding: 18px 36px;
+    background-color: red; /* Changed to red as requested */
+    border: 2px solid red;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 220px;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 0 15px red, 0 0 30px red;
+    transition: all 0.3s ease;
+}
+
+.surprise-btn:hover {
+    background-color: transparent;
+    color: red;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px red, 0 0 35px red;
+}
+
+/* Modal Styling for Enlarged Image */
+.image-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .neon-title {
+        font-size: 2.5rem;
+    }
+
+    .slider-container {
+        top: 5%;
+        width: 90%;
+    }
+
+    .slider-img {
+        width: 250px;
+        height: 150px;
+    }
+
+    .surprise-btn {
+        font-size: 1.5rem;
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .neon-title {
+        font-size: 2rem;
+    }
+
+    .slider-img {
+        width: 200px;
+        height: 120px;
+    }
+
+    .surprise-btn {
+        font-size: 1.2rem;
+        width: 150px;
+    }
+}
